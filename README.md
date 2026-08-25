@@ -27,19 +27,27 @@ MyLv는 사용자의 목표, 할 일, 스킬 성장을 캐릭터와 레벨링 �
 
 ## 프로젝트 구조
 
+프로젝트 구조는 `MVVM + Service + Repository` 기준으로 정리합니다.
+
 ```text
 MyLv/
 ├── MyLv.xcodeproj
 ├── MyLv/
-│   ├── MyLvApp.swift
-│   ├── ContentView.swift
-│   └── Assets.xcassets
+│   ├── App/
+│   ├── Features/
+│   ├── Models/
+│   ├── Repositories/
+│   ├── Services/
+│   └── Resources/
 ├── docs/
+│   ├── ARCHITECTURE.md
 │   ├── PROJECT_OVERVIEW.md
 │   └── GIT_CONVENTION.md
 ├── .gitignore
 └── README.md
 ```
+
+자세한 폴더 구조와 역할은 [Architecture](docs/ARCHITECTURE.md) 문서를 기준으로 합니다.
 
 ## 실행 방법
 
@@ -49,6 +57,6 @@ MyLv/
 
 ## 문서
 
+- [Architecture](docs/ARCHITECTURE.md)
 - [Project Overview](docs/PROJECT_OVERVIEW.md)
 - [Git Convention](docs/GIT_CONVENTION.md)
-

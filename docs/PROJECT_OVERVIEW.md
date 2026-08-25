@@ -25,19 +25,22 @@ MyLv는 사용자가 목표와 할 일을 관리하면서 자신의 성장 과�
 
 현재 기획 자료 기준으로 다음 화면들이 주요 흐름에 포함됩니다.
 
-- HomeView
-- GoalEditorView
-- TodoEditorView
-- SkillView
-- SkillEditorView
 - CharacterSelectView
+- GoalSetupView
+- HomeView
+- SkillView
+- TodoEditorView
 
 ## 기술 방향
 
 - SwiftUI 기반으로 개발합니다.
-- 초기에는 기본 Xcode 프로젝트 구조에서 시작합니다.
-- 앱 규모가 커지면 MVVM 구조를 기준으로 View, ViewModel, Model을 분리합니다.
-- 데이터 처리와 외부 연동이 필요해지면 Service, Repository 계층을 도입합니다.
+- `MVVM + Service + Repository` 구조를 기준으로 개발합니다.
+- 화면 코드는 기능 단위로 `Features` 아래에 둡니다.
+- 각 기능은 `Views/`, `ViewModels/` 폴더로 구분합니다.
+- 앱 전체에서 공유되는 데이터 구조는 `Models/`에 둡니다.
+- 로컬 저장/복원은 `Repositories/`에서 담당합니다.
+- EXP, Level, LearningPlan 변경 규칙은 `Services/`에서 담당합니다.
+- `Core/` 폴더는 현재 단계에서는 만들지 않습니다.
 
 ## 현재 결정된 내용
 
@@ -46,8 +49,8 @@ MyLv는 사용자가 목표와 할 일을 관리하면서 자신의 성장 과�
 - 로컬 프로젝트와 GitHub 원격 저장소 연결을 완료했습니다.
 - 기본 브랜치는 `main`을 사용합니다.
 - 첫 커밋 메시지는 `Initial Xcode project`입니다.
+- 확정 폴더 구조는 `App`, `Features`, `Models`, `Repositories`, `Services`, `Resources`입니다.
 
 ## 참고 자료
 
 상위 작업 폴더에 기능 명세서, 유저 플로우, 모델 설계, 화면 Hi-Fi 자료가 정리되어 있습니다. 구현 단계에서 필요한 내용을 선별해 `docs/` 안으로 옮기거나 요약 문서를 추가합니다.
-
