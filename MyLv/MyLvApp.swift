@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct MyLvApp: App {
@@ -13,5 +14,6 @@ struct MyLvApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: AppStateRecord.self)
     }
 }
