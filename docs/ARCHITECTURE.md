@@ -56,7 +56,8 @@ MyLv/
 │
 ├── Repositories/
 │   ├── AppStateRepository.swift
-│   └── LocalAppStateRepository.swift
+│   ├── AppStateRecord.swift
+│   └── SwiftDataAppStateRepository.swift
 │
 ├── Services/
 │   ├── GrowthRuleService.swift
@@ -111,7 +112,8 @@ FeatureName/
 현재 MVP는 서버 없이 로컬 저장만 사용하므로, 기능별 Repository를 만들지 않고 앱 상태 전체를 저장/복원하는 Repository를 사용합니다.
 
 - `AppStateRepository.swift`: 앱 상태 저장소의 인터페이스
-- `LocalAppStateRepository.swift`: 로컬 저장 방식의 실제 구현체
+- `AppStateRecord.swift`: `AppState`를 JSON `Data`로 담아 SwiftData에 저장하기 위한 저장용 모델
+- `SwiftDataAppStateRepository.swift`: SwiftData로 앱 상태를 로컬에 저장/복원하는 실제 구현체
 
 ## Services
 
@@ -158,5 +160,13 @@ View
 - 기능별 View와 ViewModel은 각각 `Views/`, `ViewModels/` 폴더로 구분합니다.
 - 모델은 기능 폴더 안에 두지 않고 `Models/`에 모읍니다.
 - Repository는 현재 MVP 기준으로 `AppStateRepository` 중심으로 구성합니다.
+- 앱에서 사용하는 `struct`/`enum` 모델은 유지하고, SwiftData 저장을 위해 `AppStateRecord`만 `@Model final class`로 둡니다.
 - Service는 저장이 아니라 앱 규칙과 계산만 담당합니다.
 
+## 구현 진행 상태
+
+- `Models/`에 `AppState`, `LearningPlan`, `Skill`, `Todo`, `Completion`, `Character`, `CharacterGender`를 추가했습니다.
+- `Repositories/`에 `AppStateRepository`, `AppStateRecord`, `SwiftDataAppStateRepository`를 추가했습니다.
+- `AppStateRepository`는 `load()`, `save(_:)`, `reset()`을 통해 앱 상태의 Read, Create/Update, Delete 흐름을 정의합니다.
+- `SwiftDataAppStateRepository`는 `AppState`를 JSON `Data`로 인코딩해 `AppStateRecord`에 저장하고, 다시 디코딩해 복원합니다.
+- `MyLvApp`에는 `.modelContainer(for: AppStateRecord.self)`를 연결했습니다.

@@ -42,6 +42,15 @@ MyLv는 사용자가 목표와 할 일을 관리하면서 자신의 성장 과�
 - EXP, Level, LearningPlan 변경 규칙은 `Services/`에서 담당합니다.
 - `Core/` 폴더는 현재 단계에서는 만들지 않습니다.
 
+## 구현 진행 상태
+
+- 기본 Xcode 프로젝트를 생성했습니다.
+- Git 저장소를 초기화하고 GitHub 원격 저장소와 연결했습니다.
+- `Models/`에 앱 상태와 핵심 도메인 모델을 추가했습니다.
+- `Repositories/`에 `AppStateRepository` 프로토콜을 추가했습니다.
+- SwiftData 저장용 `AppStateRecord`와 실제 구현체 `SwiftDataAppStateRepository`를 추가했습니다.
+- `MyLvApp`에 SwiftData model container를 연결했습니다.
+
 ## 현재 결정된 내용
 
 - 프로젝트 이름은 `MyLv`입니다.
@@ -50,6 +59,9 @@ MyLv는 사용자가 목표와 할 일을 관리하면서 자신의 성장 과�
 - 기본 브랜치는 `main`을 사용합니다.
 - 첫 커밋 메시지는 `Initial Xcode project`입니다.
 - 확정 폴더 구조는 `App`, `Features`, `Models`, `Repositories`, `Services`, `Resources`입니다.
+- 앱에서 사용하는 모델은 `struct`/`enum` 중심으로 유지합니다.
+- SwiftData 저장을 위해 별도의 `@Model final class`인 `AppStateRecord`를 사용합니다.
+- 현재 Repository는 기능별 CRUD Repository가 아니라 `AppStateRepository` 중심으로 구성합니다.
 
 ## 참고 자료
 

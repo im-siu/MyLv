@@ -24,6 +24,10 @@ MyLv는 사용자의 목표, 할 일, 스킬 성장을 캐릭터와 레벨링 �
 - Git 저장소 초기화 완료
 - GitHub 원격 저장소 연결 완료
 - 첫 커밋 및 `main` 브랜치 push 완료
+- 핵심 도메인 모델 추가 완료
+- `AppStateRepository` 추가 완료
+- SwiftData 기반 `SwiftDataAppStateRepository` 추가 완료
+- SwiftData 저장용 `AppStateRecord` 및 model container 연결 완료
 
 ## 프로젝트 구조
 
